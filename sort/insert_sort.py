@@ -12,3 +12,16 @@ def insert_sort(_list):
             _list[position] = _list[position-1]
             position -= 1
         _list[position] = current
+
+
+def insert_sort2(_list):
+    for i in range(len(_list)-1):
+        for j in range(i+1, len(_list)):
+            if _list[i] > _list[j]:
+                _list[i], _list[j] = _list[j], _list[i]
+    return _list
+
+
+alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+insert_sort2(alist)
+print(alist)
