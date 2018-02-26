@@ -36,7 +36,3 @@ def quick_sort_helper(myList, start, end):
         quick_sort_helper(myList, j + 1, end)
     return myList
 
-
-alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-quick_sort(alist)
-print(alist)
