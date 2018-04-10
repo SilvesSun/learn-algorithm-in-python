@@ -26,18 +26,15 @@ def convert(s, numRows):
     for i in range(int(count)):
         matrix.append(s[size*i:size*i+size])
         # print(matrix)
-    new_s = []
+    new_matrix = []
     for item in matrix:
         list1 = list(item[:numRows])
-        # print(list1)
-        pprint(item[numRows:size].center(numRows))
         list2 = list(item[numRows:size].center(numRows))[::-1]
-        print(list2)
-        new_s.append(list1)
-        new_s.append(list2)
+        new_matrix.append(list1)
+        new_matrix.append(list2)
     s1 = ''
     for i in range(numRows):
-        for j in new_s:
+        for j in new_matrix:
             s1 += j[i]
 
     return s1.replace(' ', '')
