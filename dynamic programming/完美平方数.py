@@ -44,7 +44,6 @@ class Solution(object):
                 dp[i+j**2] = min(dp[i]+1, dp[i+j**2])
                 j += 1
             i += 1
-        print(dp)
         return dp[n]
 
 
