@@ -12,11 +12,9 @@ class Solution(object):
         dp = [1 for _ in range(l)]
         for i in range(1, l):
             for j in range(0, i):
-                print(j, i)
                 if nums[i] > nums[j] and dp[i] < dp[j] + 1:
                     dp[i] = dp[j] + 1
         return max(dp)
-
 
 
 s = Solution()
