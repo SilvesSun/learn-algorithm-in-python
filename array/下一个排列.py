@@ -29,5 +29,5 @@ class Solution(object):
 
 s = Solution()
 
-nums = [3,2,1]
+nums = [3, 2, 1]
 s.nextPermutation(nums)
