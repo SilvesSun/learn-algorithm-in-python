@@ -18,3 +18,18 @@ class Solution(object):
 
             #  开始遍历右子树
             t_node = t_node.right
+
+    def inorder_recursive(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        self.traverse(res, root)
+        return res
+
+    def traverse(self, res, node):
+        if node:
+            self.traverse(res, node.left)
+            res.append(node.val)
+            self.traverse(res, node.right)
