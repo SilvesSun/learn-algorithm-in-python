@@ -2,6 +2,7 @@
 def quick_sort(alist):
     """
     这种写法需要额外的空间, 但是易于理解
+    复杂度 nlogn
     :param alist:
     :return:
     """
