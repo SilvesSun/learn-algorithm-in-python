@@ -1,8 +1,6 @@
-"""
-Given a “flatten” dictionary object, whose keys are dot-separated. For example, { ‘A’: 1, ‘B.A’: 2, ‘B.B’: 3, ‘CC.D.E’: 4, ‘CC.D.F’: 5}.
-Implement a function in any language to transform it to a “nested” dictionary object. In the above case, the nested version is like:
-{'A':1, {B:{A:2,B:3}}, {'CC':{D:{E:4}}}....}
-"""
+"""Given a “flatten” dictionary object, whose keys are dot-separated. For example, { ‘A’: 1, ‘B.A’: 2, ‘B.B’: 3,
+‘CC.D.E’: 4, ‘CC.D.F’: 5}. Implement a function in any language to transform it to a “nested” dictionary object. In
+the above case, the nested version is like: {'A':1, {B:{A:2,B:3}}, {'CC':{D:{E:4}}}....} """
 
 
 def flattenToNestedDic(dic):
@@ -23,6 +21,7 @@ def flattenToNestedDic(dic):
         else:
             s[key_list[0]] = v
         return s
+
     dic_lst = []
     new_dic = {}
     for k, v in dic.items():
@@ -36,5 +35,5 @@ def flattenToNestedDic(dic):
     return new_dic
 
 
-_d = {'A': 1, 'B.B': 2, 'B.C': 4, 'BA.D': 4, 'BC.A.A':7, 'BC.A.B':6}
+_d = {'A': 1, 'B.B': 2, 'B.C': 4, 'BA.D': 4, 'BC.A.A': 7, 'BC.A.B': 6}
 flattenToNestedDic(_d)
