@@ -26,3 +26,23 @@ class Solution(object):
             last_max, cur_max = cur_max, max(last_max+nums[i], cur_max)
 
         return cur_max
+
+    def rob2(self, nums):
+        n = len(nums)
+        if not nums: return 0
+        dp = [0 for _ in range(n)]
+
+        if n == 1: return nums[0]
+        if n == 2: return max(nums[0], nums[1])
+
+        for i in range(n):
+            if i == 0: dp[0] = nums[0]
+            if i == 1: dp[1] = max(nums[0], nums[1])
+            else:
+                dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+        return dp[n-1]
+
+nums = [1,2,3,1]
+s = Solution()
+print(s.rob2(nums))
+
