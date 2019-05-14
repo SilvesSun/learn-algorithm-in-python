@@ -62,6 +62,7 @@ class Solution(object):
         sum_set.sort(key=lambda x: abs(x-target))
         return sum_set[0]
 
+
 s = Solution()
 nums = [-1, 2, 1, -4]
 target = 1
