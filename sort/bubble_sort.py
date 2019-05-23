@@ -10,3 +10,6 @@ def bubble_sort(lists):
             if lists[i] > lists[j]:
                 lists[i], lists[j] = lists[j], lists[i]
     return lists
+
+
+print(bubble_sort([54, 26, 93, 17, 77, 31, 44, 55, 20]))

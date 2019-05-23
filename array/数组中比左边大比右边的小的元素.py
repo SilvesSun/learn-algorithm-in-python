@@ -10,7 +10,6 @@ def solve(nums):
     r_min = nums[l - 1]
     for i in range(l - 1, -1, -1):
         r_min_arr[i] = min(r_min, nums[i])
-    print(r_min_arr)
 
     l_max = nums[0]
     for j in range(0, l-1):
@@ -21,4 +20,4 @@ def solve(nums):
 
 
 if __name__ == '__main__':
-    solve([1, 8, 6, 9, 10, 15, 21, 20])
+    solve([1, 5, 4, 12, 8])
