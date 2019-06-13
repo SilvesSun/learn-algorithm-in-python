@@ -3,6 +3,11 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+        将数组中前k项的最大连续子数组和记为f(k)。假设我们已经处理了k-1个，正在处理第k个。那么f(k)跟f(k-1)有什么关系？它必然是下列三种情况中最大的那个：
+
+        - 前k-1项的最大子数组和
+        - 当前数组第k项
+        - 当前第k项，加上前面连续的若干项
         """
 
         max_len = len(nums)
