@@ -12,7 +12,6 @@ class Solution(object):
         def backtrack(_nums, track):
             if not _nums:
                 res.append(track[:])
-                print(res)
                 return
             for i in range(len(_nums)):
                 track.append(_nums[i])
