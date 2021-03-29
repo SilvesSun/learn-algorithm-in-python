@@ -31,6 +31,9 @@ class Solution(object):
                 j += 1
             return True
 
+        # 路径：board 中小于 row 的那些行都已经成功放置了皇后
+        # 选择列表：第 row 行的所有列都是放置皇后的选择
+        # 结束条件：row 超过 board 的最后一行
         def backtrack(track, row):
 
             if len(track) == n:
