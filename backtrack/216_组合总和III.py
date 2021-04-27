@@ -7,9 +7,13 @@ class Solution(object):
         return res
 
     def backtrack(self, nums, k, path, res, n):
+        if sum(path) > n:
+            return
         if len(path) == k:
             if sum(path) == n:
                 res.append(path[:])
+            return
+        if len(path) > k:
             return
         for i in range(len(nums)):
             path.append(nums[i])
