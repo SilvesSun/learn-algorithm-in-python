@@ -21,6 +21,16 @@ class Solution(object):
             max_sum = max(max_sum, max_tem)
         return max_sum
 
+    def max_sub_array(self, nums):
+        dp = [0 for _ in range(len(nums))]
+        dp[0] = nums[0]
+        cmax = nums[0]
+        for i in range(1, len(nums)):
+            dp[i] = max(dp[i-1] + nums[i], nums[i])
+            if cmax < dp[i]:
+                cmax = dp[i]
+        return cmax
+
 
 s = Solution()
 s.maxSubArray(

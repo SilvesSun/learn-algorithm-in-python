@@ -23,12 +23,6 @@ class Solution(object):
             self.backtrack(nums[:i] + nums[i + 1:], path, res)
             path.pop()
 
-    def is_valid(self, path):
-        for idx, i in enumerate(path):
-            if ((idx + 1) % i != 0) and (i % (idx + 1) != 0):
-                return False
-        return True
-
 
 if __name__ == '__main__':
     s = Solution()
