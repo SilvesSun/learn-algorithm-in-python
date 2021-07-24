@@ -15,6 +15,16 @@ class Solution(object):
             m = max(current, m)
         return m
 
+    def dynamic_max_sub_array(self, nums):
+        n = len(nums)
+        dp = [-float('INF')] * n
+        dp[0] = nums[0]
+        m = dp[0]
+        for i in range(1, n):
+            dp[i] = max(dp[i - 1] + nums[i], nums[i])
+            m = max(dp[i], m)
+        return m
+
     def maxSubArray2(self, nums):
         """
         分冶法
@@ -43,8 +53,6 @@ class Solution(object):
         return max(left_max + nums[mid] + right_max, max(left_ans, right_ans))
 
 
-
-
-nums = [1, 2]
+nums = [-2,1,-3,4,-1,2,1,-5,4]
 s = Solution()
-print(s.maxSubArray2(nums))
+print(s.dynamic_max_sub_array(nums))
