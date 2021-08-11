@@ -31,4 +31,3 @@ class Solution(object):
             char_dict[char] = idx
             max_length = max(max_length, idx - start)
         return max_length
-
