@@ -40,13 +40,11 @@ class Solution:
         longest = ''
         for t in ds:
             if self.isValid(s, t):
-                tmp = t
-                if len(tmp) > len(longest):
-                    longest = tmp
-                elif len(tmp) == len(longest):
-                    if tmp < longest:
-                        longest = tmp
-            print(longest)
+                if len(t) > len(longest):
+                    longest = t
+                elif len(t) == len(longest):
+                    if t < longest:
+                        longest = t
             if len(t) < len(longest):
                 return longest
         return longest
