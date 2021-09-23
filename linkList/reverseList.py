@@ -29,7 +29,7 @@ class Solution(object):
 
 
 p = ListNode(1, ListNode(2, ListNode(3, None)))
-q = Solution().reverseList(p)
+q = Solution().reverseList2(p)
 while q:
     print(q.val)
     q = q.next
