@@ -28,4 +28,11 @@ class Solution(object):
             root.left = None
         return root
 
+    def invertTree2(self, root):
+        if root is None: return root
+        root.left, root.right = root.right, root.left
+        self.invertTree2(root.left)
+        self.invertTree2(root.right)
+        return root
+
 
