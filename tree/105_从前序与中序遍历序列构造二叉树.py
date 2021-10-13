@@ -52,7 +52,6 @@ class Solution:
     def build(self, preorder, pre_start, pre_end, inorder, in_start, in_end):
         if pre_start > pre_end:
             return
-        print(pre_start)
         root_val = preorder[pre_start]
         # root_val 在中序中的索引
         in_root_idx = inorder.index(root_val)
