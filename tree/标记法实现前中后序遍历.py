@@ -7,9 +7,8 @@ class Solution:
         stack = []
         if root: stack.append(root)
         while stack:
-            node = stack[-1]
+            node = stack.pop()
             if node:
-                stack.pop()
                 if node.right: stack.append(node.right)
                 if node.left: stack.append(node.left)
                 # root节点
@@ -17,7 +16,6 @@ class Solution:
                 stack.append(None)  # 标记前一个节点已处理
             else:
                 # 遇到一个空节点, 下一个为root
-                stack.pop()
                 res.append(stack.pop().val)
         return res
 
@@ -26,9 +24,8 @@ class Solution:
         stack = []
         if root: stack.append(root)
         while stack:
-            node = stack[-1]
+            node = stack.pop()
             if node:
-                stack.pop()
                 if node.right: stack.append(node.right)
                 # root节点
                 stack.append(node)
@@ -36,7 +33,6 @@ class Solution:
                 if node.left: stack.append(node.left)
             else:
                 # 遇到一个空节点, 下一个为root
-                stack.pop()
                 res.append(stack.pop().val)
         return res
 
@@ -45,9 +41,8 @@ class Solution:
         stack = []
         if root: stack.append(root)
         while stack:
-            node = stack[-1]
+            node = stack.pop()
             if node:
-                stack.pop()
                 # root节点
                 stack.append(node)
                 stack.append(None)  # 标记前一个节点已处理
@@ -55,7 +50,6 @@ class Solution:
                 if node.left: stack.append(node.left)
             else:
                 # 遇到一个空节点, 下一个为root
-                stack.pop()
                 res.append(stack.pop().val)
         return res
 
