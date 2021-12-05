@@ -24,5 +24,4 @@ class Solution(object):
 
 
 s = Solution()
-print(s.climbStairs(6))
-set()
+print(s.climbStairs(10))
