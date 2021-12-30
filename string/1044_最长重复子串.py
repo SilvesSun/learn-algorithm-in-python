@@ -33,6 +33,9 @@
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def longestDupSubstring(self, s: str) -> str:
+        """
+        Rabin-Karp的预处理时间是O(m)，匹配时间O( ( n - m + 1 ) m )
+        """
         n = len(s)
         nums = [ord(c) - ord('a') for c in s]
         a = 26
