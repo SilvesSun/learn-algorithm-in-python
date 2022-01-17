@@ -14,7 +14,7 @@ class Solution(object):
         return maxA
 
     def maxArea2(self, height):
-        # 双指针法, 移动较小的指针
+        # 双指针法, 移动高度较小的指针
 
         l = 0
         r = len(height) - 1
