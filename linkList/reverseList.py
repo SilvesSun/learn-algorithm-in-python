@@ -21,7 +21,7 @@ class Solution(object):
         return pre
 
     def reverseList2(self, head):
-        if not head: return None
+        if not head or not head.next: return head
         new = self.reverseList2(head.next)
         head.next.next = head
         head.next = None
