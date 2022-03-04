@@ -93,7 +93,7 @@ class Solution:
                     i = j - 1
                     nums.append(u)
                 else:
-                    if i and (cs[i-1] == '(' or cs[i-1] == '+' or cs[i-1] == '-'):
+                    if i and (cs[i - 1] == '(' or cs[i - 1] == '+' or cs[i - 1] == '-'):
                         nums.append(0)
                     while ops and ops[-1] != '(':
                         # 看前一个操作符的优先级
@@ -127,7 +127,32 @@ class Solution:
         elif op == '%':
             ans = a % b
         nums.append(int(ans))
-# leetcode submit region end(Prohibit modification and deletion)
+
+    def calculate2(self, s):
+        """
+        基于此，我们可以用一个栈，保存这些（进行乘除运算后的）整数的值。对于加减号后的数字，将其直接压入栈中；
+        对于乘除号后的数字，可以直接与栈顶元素计算，并替换栈顶元素为计算后的结果
+        """
+        n = len(s)
+        stack = []
+        pre_sign = '+'
+        num = 0
+        for i in range(n):
+            if s[i] != ' ' and s[i].isdigit():
+                num = num * 10 + int(s[i])
+            if i == n - 1 or s[i] in '+-*/':
+                if pre_sign == '+':
+                    stack.append(num)
+                elif pre_sign == '-':
+                    stack.append(-num)
+                elif pre_sign == '*':
+                    stack.append(stack.pop() * num)
+                else:
+                    stack.append(stack.pop() // num)
+                pre_sign = s[i]
+                num = 0
+        return sum(stack)
+
 
 if __name__ == '__main__':
-    print(Solution().calculate(" 3+5 / 2 "))
+    print(Solution().calculate2(" 3+5 / 2 "))
