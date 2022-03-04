@@ -60,6 +60,6 @@ class Solution(object):
 
 if __name__ == '__main__':
     coins = [1, 2, 5]
-    amount = 11
+    amount = 5
     s = Solution()
-    print(s.coin_change3(coins, amount) == 3)
+    print(s.coin_change(coins, amount))
