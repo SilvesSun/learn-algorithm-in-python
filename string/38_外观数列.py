@@ -87,6 +87,23 @@ class Solution:
             s += f'{len(i)}{i[0]}'
         return s
 
+    def countAndSay2(self, n):
+        # 递归版本
+        if n == 1: return "1"
+        return self.describe(self.countAndSay2(n - 1))
+
+    def describe(self, s: str):
+        ans = ""
+        count = 0
+        l = len(s)
+        for i in range(l):
+            if i + 1 != l and s[i] == s[i+1]:
+                count += 1
+            else:
+                ans += f"{count+1}{s[i]}"
+                count = 0
+        return ans
+
 
 if __name__ == '__main__':
-    print(Solution().countAndSay(5))
+    print(Solution().countAndSay2(4))
