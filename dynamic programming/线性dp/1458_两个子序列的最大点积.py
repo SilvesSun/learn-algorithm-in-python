@@ -59,7 +59,7 @@ from typing import List
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
-        # dp[i][j] 表示nums1[0:i] 和 nums2[0:j]的最大点积
+        # dp[i][j] 表示考虑 nums1 前 i 个元素和 nums2 前 j 个元素时，能够得到的最大点积。
         # 选择当前元素, 则最大点积可能为 max(dp[i-1][j-1] + nums1[i] * nums2[j], nums1[i] * nums2[j])
         # 不选 nums[1], 则最大点积为 dp[i-1][j]
         # 不选 nums2[1], 则最大点积为 dp[i][j-1]
