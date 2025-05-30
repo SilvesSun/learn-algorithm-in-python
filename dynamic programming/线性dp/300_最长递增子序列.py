@@ -51,8 +51,16 @@ from typing import List
 
 class Solution:
     def lengthOfLIS_Dynamic(self, nums: List[int]) -> int:
-        # 时间复杂度O(n^2), 空间复杂度O(n)
-        # 定义dp[i] 为以 nums[i] 为结尾的子序列的最大长度(即这个子序列一定包含nums[i])
+        # 经典动态规划解法（时间复杂度 O(n²)）
+        # 定义 dp[i] 表示以第 i 个元素结尾的最长递增子序列的长度。
+        # 初始时，所有 dp[i] = 1，因为每个元素自身都可作为长度为1的递增子序列。
+        #
+        # 状态转移：
+        # 对于每个 i，遍历 j 从 0 到 i-1：
+        # 如果 nums[i] > nums[j]，则 dp[i] = max(dp[i], dp[j] + 1)。
+        #
+        # 最终答案是 dp 数组中的最大值。
+
         if not nums:
             return 0
         n = len(nums)
