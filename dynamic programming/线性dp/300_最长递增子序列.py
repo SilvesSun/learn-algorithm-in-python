@@ -73,6 +73,7 @@ class Solution:
         return max(dp)
 
     def lengthOfLIS(self, nums: List[int]) -> int:
+        # 维护一个辅助数组 p，它的每一项 p[i] 的含义是，所有长度为 i+1 的上升子序列的末尾元素中的最小值
         # 新建数组, 用于保存最长上升子序列, 在数组中尽量存较小的元素, 维持单调递增
         tails = [0] * len(nums)
         res = 0
