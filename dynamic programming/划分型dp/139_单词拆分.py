@@ -52,6 +52,7 @@ class Solution:
         n = len(s)
         dp = [False for _ in range(n + 1)]
         dp[0] = True  # 空串可以被表示
+        # 若 dp[i]=True 且 s[i,⋯,j) 在 wordlist 中：dp[j]=True。解释：dp[i]=True 说明 s 的前 i 位可以用 wordDict 表示，则 s[i,⋯,j) 出现在 wordDict 中，说明 s 的前 j 位可以表示
         for i in range(n):
             for j in range(i+1, n+1):
                 if dp[i] and s[i:j] in wordDict:
