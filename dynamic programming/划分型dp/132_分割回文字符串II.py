@@ -48,12 +48,27 @@ class Solution:
         # 要求[0, i] 的子串进行分割, 假设分割点为j, 使得分割后[j+1, i] 为回文字符串, 说明 dp[i] = dp[j] + 1, 同时由于要求最小次数,
         # dp[i] = min(dp[i], dp[j] + 1), 遍历过程中取最小值
         n = len(s)
-        g = [[True] * n for _ in range(n)]
-        for i in range(n - 1, -1, -1):
-            for j in range(i + 1, n):
-                g[i][j] = (s[i] == s[j]) and g[i + 1][j - 1]
+
+        # g[l][r] 代表 [l,r] 这一段是否为回文串
+        # 要想 g[l][r]=true ，必须满足以下两个条件
+        # 1. s[l] == s[r]
+        # 2. g[l+1][r-1] = true
+
+
+        g = [[False] * n for _ in range(n)]
+        for r in range(n):
+            for l in range(r, -1, -1):
+                if l == r:
+                    g[l][r] = True
+                else:
+                    if s[l] == s[r] and (r -l  == 1 or g[l + 1][r - 1]):
+                        g[l][r] = True
+
+        from pprint import pprint
+        pprint(g)
 
         dp = [float('inf')] * n
+        
 
         for i in range(n):
             if g[0][i]:
@@ -65,3 +80,6 @@ class Solution:
         return dp[-1]
 
 # leetcode submit region end(Prohibit modification and deletion)
+if __name__ == '__main__':
+    s = "leet"
+    print(Solution().minCut(s))
