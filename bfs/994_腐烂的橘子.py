@@ -61,15 +61,24 @@ class Solution:
         # all rotten orange
         row = len(grid)
         col = len(grid[0])
-        rotten = [(i, j, rnd) for j in range(col) for i in range(row) if grid[i][j] == 2]
+        rotten = [
+            (i, j, rnd) for j in range(col) for i in range(row) if grid[i][j] == 2
+        ]
         while rotten:
             i, j, rnd = rotten.pop(0)
             # bfs
             for di, dj in directs:
-                if 0 <= i + di < row and 0 <= j + dj < col and grid[i+di][j+dj] == 1:
-                    grid[i+di][j+dj] = 2
-                    rotten.append((i+di, j+dj, rnd + 1))
+                if (
+                    0 <= i + di < row
+                    and 0 <= j + dj < col
+                    and grid[i + di][j + dj] == 1
+                ):
+                    grid[i + di][j + dj] = 2
+                    rotten.append((i + di, j + dj, rnd + 1))
         for row in grid:
-            if 1 in row: return -1
+            if 1 in row:
+                return -1
         return rnd
+
+
 # leetcode submit region end(Prohibit modification and deletion)
