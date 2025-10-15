@@ -1,5 +1,6 @@
 import heapq
 
+
 # Dijkstra算法
 # 基本过程
 # 1. 初始化：将起点加入到优先队列中，并标记为已访问。
@@ -30,6 +31,44 @@ def dijkstra(graph, start, end):
 
     return float("inf"), []
 
+
+# 使用一个额外的数据结构维护每个节点在队列中的最短距离，避免重复入队导致效率低下
+def dijkstra2(graph, start, end):
+    # graph: dict，邻接表形式，格式 {节点: [(邻居, 权重), ...], ...}
+    dist = {node: float('inf') for node in graph}
+    dist[start] = 0
+    prev = {}  # 用于记录路径
+    queue = [(0, start)]
+
+    while queue:
+        current_dist, node = heapq.heappop(queue)
+        if current_dist > dist[node]:
+            continue
+        if node == end:
+            break
+
+        for neighbor, weight in graph[node]:
+            new_dist = current_dist + weight
+            if new_dist < dist[neighbor]:
+                dist[neighbor] = new_dist
+                prev[neighbor] = node
+                heapq.heappush(queue, (new_dist, neighbor))
+
+    # 路径回溯构建
+    if dist[end] == float('inf'):
+        return float('inf'), []
+
+    path = []
+    cur = end
+    while cur != start:
+        path.append(cur)
+        cur = prev[cur]
+    path.append(start)
+    path.reverse()
+
+    return dist[end], path
+
+
 if __name__ == '__main__':
     graph_example = {
         'A': [('B', 1), ('C', 4)],
@@ -38,6 +77,6 @@ if __name__ == '__main__':
         'D': []
     }
 
-    distance, path = dijkstra(graph_example, 'A', 'D')
+    distance, path = dijkstra2(graph_example, 'A', 'D')
     print(f"最短路径长度: {distance}")
     print(f"最短路径: {path}")
