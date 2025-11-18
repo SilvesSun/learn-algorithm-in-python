@@ -30,6 +30,16 @@ class UF:
 
         return p
 
+    def find_stack(self, p):
+        stack = []
+        while self.parent[p] != p:
+            stack.append(p)
+            p = self.parent[p]
+        root = p
+        for node in stack:
+            self.parent[node] = root
+        return root
+
     def connect(self, p, q):
         root_p = self.find(p)
         root_q = self.find(q)
